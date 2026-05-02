@@ -1,0 +1,54 @@
+{
+  "name": "Barbearia of Brothers",
+  "address": "Av. Nossa Senhora de Fátima 46, 2410-140 Leiria",
+  "phone": "912 718 845",
+  "email": "barbeariaofbrothers@gmail.com",
+  "hours": {
+    "monday":    {"open": "10:00", "close": "20:00"},
+    "tuesday":   {"open": "10:00", "close": "20:00"},
+    "wednesday": {"open": "10:00", "close": "20:00"},
+    "thursday":  {"open": "10:00", "close": "20:00"},
+    "friday":    {"open": "10:00", "close": "20:00"},
+    "saturday":  {"open": "10:00", "close": "18:00"},
+    "sunday":    null
+  },
+  "barbers": [
+    "Victor de Souza Chagas",
+    "Paulo Taginato",
+    "Abner",
+    "Tarcis Gonzaga"
+  ],
+  "services": {
+    "Cortes": {
+      "Degradee": 15,
+      "Tradicional curto": 13,
+      "Tradicional na Tesoura": 13,
+      "Rapadela sem shave": 10,
+      "Rapadela com shave": 13
+    },
+    "Combos": {
+      "Degradee + Barba Tradicional": 23,
+      "Corte Tradicional + Barba": 21,
+      "Degradee + Barba Design": 25,
+      "Degradee + Sobrancelha": 18,
+      "Corte Tradicional + Sobrancelha": 15,
+      "Degradee + Barba + Sobrancelha": 26
+    },
+    "Barba": {
+      "Máquina": 7,
+      "Tradicional Simples": 10,
+      "Design": 12,
+      "Barboterapia": 16
+    },
+    "Outros": {
+      "Sobrancelha": 3,
+      "Esfoliação facial": 3,
+      "Black mask": 6,
+      "Alisamento": 20,
+      "Selagem": 25,
+      "Descoloração Completa": 55,
+      "Madeixas": 55
+    }
+  },
+  "default_service_duration_minutes": 30
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Qual é o horário de funcionamento?",
+    "aliases": ["horario", "que horas abrem", "quando estão abertos", "horário de abertura"],
+    "answer": "Estamos abertos de segunda a sexta, das 9h00 às 18h00, e ao sábado das 9h00 às 13h00."
+  },
+  {
+    "question": "Onde estão localizados?",
+    "aliases": ["morada", "endereço", "localização", "como chegar", "onde ficam", "onde fica"],
+    "answer": "Pode encontrar-nos na Rua Exemplo, 123, em Lisboa. Temos parque de estacionamento gratuito."
+  },
+  {
+    "question": "Aceitam seguros de saúde?",
+    "aliases": ["seguro", "subsistemas", "ADSE", "Multicare", "Médis"],
+    "answer": "Sim, trabalhamos com os principais subsistemas e seguros: ADSE, Multicare, Médis e SAMS. Confirme connosco antes da consulta."
+  },
+  {
+    "question": "Quanto custa uma consulta?",
+    "aliases": ["preço", "valor", "custo", "tabela de preços"],
+    "answer": "Os preços variam consoante a especialidade. Uma primeira consulta começa em 60€. Contacte-nos para a tabela completa."
+  },
+  {
+    "question": "Como posso marcar uma consulta?",
+    "aliases": ["marcar", "marcação", "agendar", "reservar"],
+    "answer": "Pode marcar diretamente aqui no chat — basta dizer o dia e hora preferidos, o seu nome e email."
+  },
+  {
+    "question": "É possível cancelar ou remarcar?",
+    "aliases": ["cancelar", "remarcar", "alterar marcação", "desmarcar"],
+    "answer": "Sim. Pode cancelar ou remarcar até 24 horas antes sem custos. Após esse período é cobrada uma taxa de 50%."
+  }
+]

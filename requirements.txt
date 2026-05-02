@@ -1,0 +1,11 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic[email]>=2.7
+pydantic-settings>=2.3
+python-dotenv>=1.0
+google-api-python-client>=2.130
+google-auth>=2.30
+google-auth-oauthlib>=1.2
+anthropic>=0.40
+rapidfuzz>=3.9
+tzdata>=2024.1
