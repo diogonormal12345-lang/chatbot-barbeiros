@@ -1,7 +1,7 @@
 from datetime import datetime
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, Form, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
@@ -30,8 +30,8 @@ app.mount("/widget", StaticFiles(directory=STATIC_DIR, html=True), name="widget"
 
 
 @app.post("/webhook/whatsapp")
-async def whatsapp(request: Request, From: str = Form(...), Body: str = Form(...)):
-    return await whatsapp_webhook(request, From=From, Body=Body)
+async def whatsapp(From: str = Form(...), Body: str = Form(...)):
+    return await whatsapp_webhook(phone=From, message=Body)
 
 
 @app.get("/health")
