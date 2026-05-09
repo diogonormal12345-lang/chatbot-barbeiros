@@ -8,6 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from app.calendar_service import create_appointment, list_free_slots
 from app.chat import handle_message
 from app.config import settings
+from app.whatsapp import whatsapp_webhook
 from app.models import (
     AppointmentRequest,
     AppointmentResponse,
@@ -26,6 +27,11 @@ app.add_middleware(
 
 STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 app.mount("/widget", StaticFiles(directory=STATIC_DIR, html=True), name="widget")
+
+
+@app.post("/webhook/whatsapp")
+async def whatsapp(request: Request, From: str = Form(...), Body: str = Form(...)):
+    return await whatsapp_webhook(request, From=From, Body=Body)
 
 
 @app.get("/health")
