@@ -9,3 +9,4 @@ google-auth-oauthlib>=1.2
 anthropic>=0.40
 tzdata>=2024.1
 twilio>=9.0
+python-multipart>=0.0.9
