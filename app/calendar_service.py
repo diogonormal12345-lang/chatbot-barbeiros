@@ -5,6 +5,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from google.auth.transport.requests import Request
+from google.oauth2 import service_account
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
@@ -15,8 +16,19 @@ from app.models import AppointmentRequest, AppointmentResponse
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
 
 
-def _load_credentials() -> Credentials:
-    """Load Google credentials. Production: env var GOOGLE_TOKEN_JSON. Local dev: token.json file."""
+def _load_credentials():
+    """Service Account (produção) ou OAuth (desenvolvimento local)."""
+    # Service Account — nunca expira, preferido em produção
+    sa_env = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON")
+    if sa_env:
+        info = json.loads(sa_env)
+        return service_account.Credentials.from_service_account_info(info, scopes=SCOPES)
+
+    sa_file = Path("service_account.json")
+    if sa_file.exists():
+        return service_account.Credentials.from_service_account_file(str(sa_file), scopes=SCOPES)
+
+    # Fallback OAuth — apenas para desenvolvimento local
     token_env = os.environ.get("GOOGLE_TOKEN_JSON")
     token_path = Path(settings.google_token_file)
     creds_path = Path(settings.google_credentials_file)
@@ -37,10 +49,8 @@ def _load_credentials() -> Credentials:
         return creds
 
     if not creds_path.exists():
-        raise RuntimeError(
-            "Sem credenciais Google. Em produção: define GOOGLE_TOKEN_JSON com o conteúdo "
-            "de token.json. Localmente: descarrega credentials.json e corre o fluxo OAuth uma vez."
-        )
+        raise RuntimeError("Sem credenciais Google configuradas.")
+
     flow = InstalledAppFlow.from_client_secrets_file(str(creds_path), SCOPES)
     creds = flow.run_local_server(port=0)
     token_path.write_text(creds.to_json(), encoding="utf-8")
